@@ -50,7 +50,7 @@ def fetchAPI():
     pron = pron[1:-1]
 
     file_object  = open(fileLocation, "w+")
-    file_object.write(f'{bcolors["WARNING"]}"{quote}"{bcolors["ENDC"]}')
+    file_object.write(f'{bcolors["WARNING"]}"{quote}" {bcolors["ENDC"]}')
     file_object.write(f'by {bcolors["FAIL"]}{artist}')
     file_object.write('\n')
     file_object.write(f'{bcolors["BOLD"]}{bcolors["OKGREEN"]}{word}{bcolors["ENDC"]} ')
