@@ -7,7 +7,7 @@ import os
 
 today = date.today()
 fileName =f'{today}.txt'
-filepath = str(Path().absolute()) + '/quotes/'
+filepath = str(Path(__file__).parent.absolute()) + '/quotes/'
 fileLocation = filepath+fileName
 
 
