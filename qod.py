@@ -3,10 +3,11 @@ from bs4 import BeautifulSoup
 import lxml
 from pathlib import Path
 from datetime import date
+import os
 
 today = date.today()
 fileName =f'{today}.txt'
-filepath ="/home/ross/.scripts/quotes/"
+filepath = str(Path().absolute()) + '/quotes/'
 fileLocation = filepath+fileName
 
 
@@ -14,6 +15,14 @@ def fetchAPI():
     wotdApi = "https://www.dictionary.com/e/word-of-the-day/"
     qotdApi = "http://api.quotable.io/random"
 
+    # Check if folder exist. if it does not, create quote folder
+    quoteDir = Path(filepath)
+    if quoteDir.is_dir():
+        print("quote dir exist")
+        pass
+    else:
+        print("creating quote dir")
+        os.mkdir(quoteDir)
     # Get quote
 
     qotdData = requests.get(qotdApi).json()
