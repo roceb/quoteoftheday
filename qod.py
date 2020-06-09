@@ -18,10 +18,8 @@ def fetchAPI():
     # Check if folder exist. if it does not, create quote folder
     quoteDir = Path(filepath)
     if quoteDir.is_dir():
-        print("quote dir exist")
         pass
     else:
-        print("creating quote dir")
         os.mkdir(quoteDir)
     # Get quote
 
