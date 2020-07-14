@@ -41,10 +41,10 @@ def fetchAPI():
     #Get word
     wotdData = requests.get(wotdApi).content
     soup = BeautifulSoup(wotdData,"lxml")
-    word = soup.find_all(class_ ="wotd-item-headword__word")[0].h1.text.strip()
-    pron = soup.find_all(class_ ="wotd-item-headword__pronunciation")[0].div.text.strip()
-    form = soup.find(class_ ="wotd-item-headword__pos").p.text.strip()
-    definition = soup.find(class_ ="wotd-item-headword__pos").find_all('p')[1].text.strip()
+    word = soup.find_all(class_ ="otd-item-headword__word")[0].h1.text.strip()
+    pron = soup.find_all(class_ ="otd-item-headword__pronunciation")[0].div.text.strip()
+    form = soup.find(class_ ="otd-item-headword__pos").p.text.strip()
+    definition = soup.find(class_ ="otd-item-headword__pos").find_all('p')[1].text.strip()
     pron = pron[1:-1]
 
     file_object  = open(fileLocation, "w+")
