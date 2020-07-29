@@ -44,8 +44,9 @@ def fetchAPI():
     word = soup.find_all(class_ ="otd-item-headword__word")[0].h1.text.strip()
     pron = soup.find_all(class_ ="otd-item-headword__pronunciation")[0].div.text.strip()
     form = soup.find(class_ ="otd-item-headword__pos").p.text.strip()
-    definition = soup.find(class_ ="otd-item-headword__pos").find_all('p')[1].text.strip()
+    definition = soup.find(class_ ="otd-item-headword__pos").find_all('p')[-1].text.strip()
     pron = pron[1:-1]
+    print(soup.find(class_ ="otd-item-headword__pos").find_all('p'))
 
     file_object  = open(fileLocation, "w+")
     file_object.write(f'{bcolors["WARNING"]}"{quote}" {bcolors["ENDC"]}')
