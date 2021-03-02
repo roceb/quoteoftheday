@@ -42,8 +42,8 @@ def fetch():
     #Get word
     wotdData = requests.get(wotdURL).content
     soup = BeautifulSoup(wotdData,"lxml")
-    word = soup.find_all(class_ ="otd-item-headword__word")[0].h1.text.strip()
-    pronunciation = soup.find_all(class_ ="otd-item-headword__pronunciation")[0].div.text.strip()
+    word = soup.find(class_ ="otd-item-headword__word").h1.text.strip()
+    pronunciation = soup.find(class_ ="otd-item-headword__pronunciation").div.text.strip()
     form = soup.find(class_ ="otd-item-headword__pos").p.text.strip()
     definition = soup.find(class_ ="otd-item-headword__pos").find_all('p')[-1].text.strip()
     pronunciation = pronunciation[1:-1]
